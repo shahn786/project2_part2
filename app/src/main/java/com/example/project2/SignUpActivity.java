@@ -1,4 +1,4 @@
-package com.example.floralhaven;
+package com.example.project2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
