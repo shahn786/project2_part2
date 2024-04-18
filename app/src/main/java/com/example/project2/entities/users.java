@@ -1,4 +1,4 @@
-package com.example.floralhaven.entities;
+package com.example.project2.entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
