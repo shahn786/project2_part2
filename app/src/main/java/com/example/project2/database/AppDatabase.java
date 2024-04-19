@@ -6,12 +6,12 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.floralhaven.dao.UsersDAO;
-import com.example.floralhaven.entities.Users;
+import com.example.project2.dao.UsersDAO;
+import com.example.project2.entities.Users;
 
 @Database(entities = {Users.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    private static final String DB_NAME = "FloralHavenDB";
+    private static final String DB_NAME = "project2DB";
     private static AppDatabase instance;
 
     public abstract UsersDAO usersDAO();

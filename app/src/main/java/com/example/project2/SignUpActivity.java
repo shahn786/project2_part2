@@ -9,10 +9,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.floralhaven.dao.UsersDAO;
-import com.example.floralhaven.database.AppDatabase;
-import com.example.floralhaven.entities.Users;
-import com.example.floralhaven.utilities.CommonMethods;
+import com.example.project2.dao.UsersDAO;
+import com.example.project2.database.AppDatabase;
+import com.example.project2.entities.Users;
+import com.example.project2.utilities.CommonMethods;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -63,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
-        Users existingUser = usersDAO.getUserByUsername(newUsername);
+        com.example.project2.entities.Users existingUser = usersDAO.getUserByUsername(newUsername);
         if (existingUser != null) {
             Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
             return;
@@ -75,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
-        Users newUser = new Users(newUsername, newEmail, CommonMethods.hashPassword(newPassword), false);
+        com.example.project2.entities.Users newUser = new Users(newUsername, newEmail, CommonMethods.hashPassword(newPassword), false);
         usersDAO.insert(newUser);
         newUser = usersDAO.getUserByUsername(newUsername);
 
@@ -88,13 +88,13 @@ public class SignUpActivity extends AppCompatActivity {
         sharedEditor.putBoolean(KEY_USER_IS_ADMIN, newUser.getIsAdmin());
         sharedEditor.apply();
 
-        startActivity(new Intent(SignUpActivity.this, com.example.floralhaven.HomeActivity.class));
+        startActivity(new Intent(SignUpActivity.this, com.example.project2.HomeActivity.class));
         finish();
     }
 
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, com.example.floralhaven.LoginActivity.class));
+        startActivity(new Intent(this, com.example.project2.LoginActivity.class));
         finish();
     }
 }

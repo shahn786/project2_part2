@@ -9,11 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.floralhaven.dao.UsersDAO;
-import com.example.floralhaven.database.AppDatabase;
-import com.example.floralhaven.entities.Users;
-import com.example.floralhaven.utilities.CommonMethods;
+import com.example.project2.dao.UsersDAO;
+import com.example.project2.database.AppDatabase;
+import com.example.project2.utilities.CommonMethods;
+import com.example.project2.entities.Users;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,12 +38,12 @@ public class LoginActivity extends AppCompatActivity {
         appSharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
         if(appSharedPreferences.getString(KEY_USERNAME, null) != null) {
             Toast.makeText(this, "Already logged in", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(LoginActivity.this, com.example.floralhaven.HomeActivity.class));
+            startActivity(new Intent(LoginActivity.this,com.example.project2.HomeActivity.class));
             finish();
         }
 
         AppDatabase appDatabase = AppDatabase.getDBInstance(this);
-        usersDAO = appDatabase.usersDAO();
+        usersDAO = appDatabase.usersDAO();   // it is not workin why
         validateDefaultRecords();
 
         editTextUsername = findViewById(R.id.editTextUsername);
@@ -94,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
 
-        startActivity(new Intent(LoginActivity.this, com.example.floralhaven.HomeActivity.class));
+        startActivity(new Intent(LoginActivity.this, com.example.project2.HomeActivity.class));
         finish();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.floralhaven;
+package com.example.project2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
